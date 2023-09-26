@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="website icon" type="png"
+        href="https://t4.ftcdn.net/jpg/03/38/53/45/360_F_338534551_Rsv1pxY28g0dhFfeD7ule82Mrbi6yasF.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: border-box;
+
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            gap: 50px;
+            background: rgb(240, 242, 245);
+        }
+
+        .login {
+            width: 25%;
+            height: 120%;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5%;
+            background-color: white;
+        }
+
+        .login input {
+            border: 1px solid black;
+            border-radius: 40px;
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            background-color: #afafe4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all ease 0.3s;
+        }
+
+        .button:hover {
+            background-color: #afafe4;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+            border-radius: 20px;
+        }
+
+
+        a[href="/signup"] {
+            color: #8888c2;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        a[href="/signup"]:hover {
+            color: #5564c2;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+
+        .fa-eye-slash:hover {
+            color: #5564c2;
+            transition: color 0.3s;
+        }
+
+        .form-check-label {
+            color: #444;
+            font-weight: 600;
+        }
+
+        .small[style*="color: red"] {
+            font-weight: 600;
+        }
+
+
+        /* .icon{
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all ease 0.4s;
+        }
+        .icon:hover{
+            background-color: #afafe4;
+            color: white;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="logo"><a href="/home"><img
+                src="https://cdn.glitch.global/6c266cf1-1225-4063-90c6-bd8d5b982de2/food-removebg-preview.png?v=1693532598743"
+                alt=""></a></div>
+    <!-- <div class="errormessage"></div> -->
+    <div class="login">
+        <form method="post" action="loginSubmit">
+            <small style="color: red; font-size: large; font-weight: 500;">
+                <%= loginerror %>
+            </small>
+            <div class="toast align-items-center fade show " role="alert" aria-live="assertive" aria-atomic="true"
+                style="display: none;" id="logout">
+                <div class="d-flex">
+                    <div class="toast-body" style="color: green; font-size: 0.90rem; font-weight: 600;">
+                        Logout Sucessfull. Login to explore Us more!
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+                        fdprocessedid="6g627"></button>
+                </div>
+            </div>
+            <h1>Sign in</h1>
+            <div class="mb-2">
+                <label for="exampleInputEmail1" class="form-label">Email address or Mobile number</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="email">
+                <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;">
+                    <%= mess %>
+                </div>
+            </div>
+            <div class="mb-3">
+
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <div style="position: relative;">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                        style="position: relative;">
+                    <i class="fa-regular fa-eye-slash fa-lg"
+                        style="color: #000000; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+                        id="pass"></i>
+                </div>
+                <div id="passwordHelp" class="form-text" style="color: red; font-weight: 500;">
+                    <%= pass %>
+                </div>
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Check me out</label>
+              </div>
+            <button type="submit" class="btn btn-primary button" onclick="signin()">Sign in</button>
+
+
+            <div class="mb-3 my-3">
+                <p>dont have an account? <a href="/signup"> create one</a></p>
+            </div>
+            <!-- <span style="opacity: 0.6;">________________</span>  or  <span style="opacity: 0.6;">________________</span>
+            <div style="display: flex; justify-content: space-around; margin-top: 30px;">
+                <div class="icon"><a href=""><i class="fa-brands fa-facebook-f fa-xl" style="color: #0561ff;"></i></a></div>
+                <div class="icon"><a href=""><i class="fa-brands fa-google-plus-g fa-xl" style="color: #0547e1;"></i></a></div>
+                <div class="icon"><a href=""><i class="fa-brands fa-twitter fa-xl" style="color: #005eff;"></i></a></div>
+            </div> -->
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const togglePassword = document.querySelector('#pass');
+        const password = document.querySelector('#exampleInputPassword1');
+
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type');
+            if (type === 'password') {
+                password.setAttribute('type', 'text');
+            } else {
+                password.setAttribute('type', 'password');
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const logoutFlag = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('logoutFlag='))
+                ?.split('=')[1];
+
+            if (logoutFlag === "true") {
+                // Display the toast message
+                document.getElementById("logout").style.display = "block";
+                // Removing the logout flag from the cookie
+                document.cookie = 'logoutFlag=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

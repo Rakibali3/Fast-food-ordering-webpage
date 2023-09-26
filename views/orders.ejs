@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordesr</title>
+    <link rel="website icon" type="png"
+        href="https://t4.ftcdn.net/jpg/03/38/53/45/360_F_338534551_Rsv1pxY28g0dhFfeD7ule82Mrbi6yasF.jpg">
+    <!-- <link rel="stylesheet" href="orders.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            width: 100%;
+        }
+
+        nav {
+            height: 94px;
+            background-color: white;
+            display: flex;
+            /* justify-content: space-around; */
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* position: sticky; */
+            z-index: 1;
+        }
+
+        nav a {
+            text-decoration: none;
+            /* color: #dd2803; */
+            font-size: 1.1vw;
+            color: black;
+            transition: 0.2s;
+        }
+
+        .home1:hover {
+            color: #dd2803;
+            text-decoration: underline;
+        }
+
+        .main nav .logo a {
+            color: #dd2803;
+            font-weight: 600;
+        }
+
+
+        .logo a img {
+            height: 50px;
+            width: 240px;
+        }
+
+        .nav-cont {
+            width: 600px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin-left: 600px;
+        }
+
+        .heading {
+            height: 300px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            background-color: #fbe690;
+        }
+
+        .heading h1 {
+            font-size: 6.5vw;
+            text-align: center;
+            color: #dd2803;
+            margin-top: auto;
+        }
+
+        #button {
+            background-color: transparent;
+            color: black;
+            border: none;
+        }
+
+        .container {
+            /* margin-top: 30px; */
+            padding-top: 30px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .items::-webkit-scrollbar {
+            display: none;
+            /* Hide Chrome, Safari, and Opera scrollbar */
+        }
+
+        .items {
+            margin-top: 13px;
+            border-bottom: 1px solid #00000033;
+            display: flex;
+            gap: 30px;
+            width: 459px;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 10px;
+        }
+
+        .items p {
+            cursor: pointer;
+        }
+
+        .empty {
+            height: 32px;
+            width: 1px;
+            background-color: #00000033;
+        }
+
+        .cart button {
+            background-color: #dd2803;
+            color: white;
+            border: none;
+            height: 35px;
+            width: 150px;
+        }
+
+        .container1 h4 {
+            width: 1000px;
+            margin: auto;
+            font-weight: 500;
+            font-size: 20px;
+            padding-top: 30px;
+        }
+
+        .container1 {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 6px;
+            /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+            /* align-items: center; */
+        }
+
+        .row1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .cart {
+            border: none;
+            background-color: #dd2803;
+            color: white;
+            width: 120px;
+            height: 35px;
+        }
+
+        .inc-dec {
+            display: flex;
+            gap: 10px;
+        }
+
+        .increment button {
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: white
+        }
+
+        .increment span {
+            color: white;
+            font-size: 20px;
+        }
+
+        .increment {
+            background: #dd2803;
+            width: 80px;
+            height: 35px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .card {
+            transition: 0.5s all ease;
+        }
+
+        .card img {
+            height: 16rem;
+            width: 20rem;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .main1 {
+            background-color: #f9f2ea;
+        }
+
+        /* footer */
+
+        .contactus {
+            height: 600px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #fff;
+            flex-wrap: wrap;
+            padding-top: 80px;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .Crow1 {
+            display: flex;
+            gap: 183px;
+        }
+
+        .Crow2 {
+            display: flex;
+            gap: 220px;
+        }
+
+        .input1 {
+            display: flex;
+            gap: 30px;
+        }
+
+        .input1 input {
+            outline: none;
+            border: none;
+            border-bottom: 2px solid black;
+            width: 220px;
+            /* padding: 2px; */
+        }
+
+        .message input {
+            width: 270px;
+            padding: 18px;
+        }
+
+        .message button {
+            width: 140px;
+            height: 60px;
+            border: 2px solid black;
+            background: none;
+            transition: 0.5s all ease;
+            font-size: 1.2vw;
+        }
+
+        .message button:hover {
+            color: white;
+            background-color: #dd2803;
+
+        }
+
+        .timings {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .social-media {
+            width: 100px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .social-media a:hover {
+            animation: shake 0.5s;
+            animation-iteration-count: 0.5s;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        footer {
+            height: 80px;
+            background-color: #dd2803;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 17px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            visibility: hidden;
+            position: absolute;
+            min-width: 110px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 10px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            visibility: visible;
+            margin-top: 2px;
+        }
+
+        .buttons {
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            padding-bottom: 40px;
+        }
+
+        .buttons button {
+            width: 73%;
+        }
+
+        .cart-item {
+            height: 70px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 13px;
+            margin: 16px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .delete-icon {
+            cursor: pointer;
+            margin-top: 30px;
+            position: absolute;
+            left: 180px;
+            transition: all ease 0.3s;
+            display: none;
+            opacity: 0.2;
+            transition: opacity 0.3s ease;
+        }
+
+        .cart-item:hover:not(.delete-icon) {
+            opacity: 0.4;
+        }
+
+        .cart-item:hover .delete-icon {
+            display: block;
+            opacity: 1;
+        }
+
+        /* media queries */
+
+
+        @media (max-width: 1245px) {
+            .nav-cont {
+                width: 100%;
+                margin-left: 0;
+                justify-content: space-evenly;
+            }
+
+            .order-online {
+                display: none;
+            }
+
+            .main nav a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width:1060px) {
+            .image-cont {
+                padding-right: 200px;
+                padding-bottom: 380px;
+            }
+
+            .image h1 {
+                font-size: 30px;
+            }
+
+            .image p {
+                font-size: 40px;
+            }
+
+            .order-online1 {
+                width: 150px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .order {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo"><a href="/home"><img
+                    src="https://cdn.glitch.global/1fe29a7d-73cd-4242-880d-c67fb794c0fe/food.png?v=1692977430389"
+                    alt="logo"></a></div>
+        <div class="nav-cont">
+            <a href="/home" class="home1">Home</a>
+            <a href="/menu" class="home1">Menu</a>
+            <a href="/orders" class="home1" style="color: #dd2803;">Order Online</a>
+            <a href="/home#contact" class="home1">Contact</a>
+            <div class="dropdown">
+                <a href="/">
+                    <i class="fa-regular fa-circle-user fa-xl" style="color: #dd2803;"></i>
+                    <span style="color: #dd2803;" id="user">Login</span>
+                </a>
+                <div class="dropdown-content">
+                    <span><a href="">My Account</a></span>
+                    <span><a href="/" onclick="logout()"> <i class="fa-solid fa-power-off fa-lg"
+                                style="color: #000000;"></i>
+                            Logout</a></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="heading">
+        <h1>ORDER ONLINE</h1>
+    </div>
+    <div class="main1">
+        <div class="container">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" id="button" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    MENU
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">CHICKEN SANDWICH</a></li>
+                    <li><a class="dropdown-item" href="#">TENDERS</a></li>
+                    <li><a class="dropdown-item" href="#">WINGS</a></li>
+                    <li><a class="dropdown-item" href="#">SPECIAL OFFERS</a></li>
+                    <li><a class="dropdown-item" href="#">SIDES</a></li>
+                    <li><a class="dropdown-item" href="#">DESSERTS</a></li>
+                </ul>
+            </div>
+            <div class="empty"></div>
+            <div class="items">
+                <p>CHICKEN SANDWICH</p>
+                <p>TENDERS</p>
+                <p>WINGS</p>
+                <p>SPECIAL OFFERS</p>
+                <p>SIDES</p>
+                <p>DESSERTS</p>
+            </div>
+            <div class="cart">
+                <button id="View-cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions">View Cart <svg xmlns="http://www.w3.org/2000/svg"
+                        width="30" height="23" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                        <path
+                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                    </svg><span id="s11">0</span></button>
+            </div>
+
+            <!-- for side bar -->
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Cart Items</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" id="Cart-Container"></div>
+                <div class="buttons">
+                    <button type="button" class="btn btn-outline-dark" onclick="clearCart()">Clear</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="Pay()">Checkout</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row1" style="display: flex; justify-content: center; align-items: center; gap: 80px;">
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img src="https://www.licious.in/blog/wp-content/uploads/2022/09/Shutterstock_17464161291-1024x1024.jpg"
+                        class="card-img-top" alt="..." id="img1">
+                    <div class="card-body">
+                        <h5 class="card-title">Classic Chicken Sandwich</h5>
+                        <b>
+                            <p class="card-text">$9.00</p>
+                        </b>
+                    </div>
+
+                </div>
+                <div class="modal" id="exampleModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Classic Chicken Sandwich</h5>
+                                <p>Introducing the Classic Chicken Sandwich – a timeless delight that satisfies your
+                                    cravings in every bite.</p>
+                                <b>
+                                    <p>$9.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s1')">-</button> <span id="s1">0</span>
+                                        <button onclick="increment('s1')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Classic Chicken Sandwich','9','s1','img1')"
+                                        data-bs-dismiss="modal">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <img src="https://s3-eu-west-1.amazonaws.com/elmenusv5-stg/Normal/54570251-be97-475c-90e4-a087622af25a.jpg"
+                        class="card-img-top" alt="..." id="img2">
+                    <div class="card-body">
+                        <h5 class="card-title">Mega Chicken Sandwich</h5>
+                        <b>
+                            <p class="card-text">$12.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal1" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Mega Chicken Sandwich</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p>$12.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s2')">-</button> <span id="s2">0</span>
+                                        <button onclick="increment('s2')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Mega Chicken Sandwich','12','s2','img2')"
+                                        data-bs-dismiss="modal">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row1" style="display: flex; justify-content: center; align-items: center; gap: 80px;"> -->
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    <img src="https://lh3.googleusercontent.com/xNFHwFu-m1sm8mer2V0J8qaPKslTGBKuH6fDbkiTHNi0Iuk0qS13bkbw4at9loa1MGOd19P2bfdOHB_Vz8ZrP-VTaohgXH6y4f7DlvfI=w512-rw"
+                        class="card-img-top" alt="..." id="img3">
+                    <div class="card-body">
+                        <h5 class="card-title">Chicken Tenders - 6pcs</h5>
+                        <b>
+                            <p class="card-text">$9.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal2" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Chicken Tenders - 6pcs</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$9.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s3')">-</button> <span id="s3">0</span>
+                                        <button onclick="increment('s3')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Chicken Tenders - 6pcs','9','s3','img3')"
+                                        data-bs-dismiss="modal">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row2 -->
+        <div class="row1" style="display: flex; justify-content: center; align-items: center; gap: 80px;">
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                    <img src="https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2tlbiUyMG51Z2dldHN8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
+                        class="card-img-top" alt="..." id="img4">
+                    <div class="card-body">
+                        <h5 class="card-title">Chicken Tenders - 9pcs</h5>
+                        <b>
+                            <p class="card-text">$12.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal3" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Chicken Tenders - 9pcs</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$12.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s4')">-</button> <span id="s4">0</span>
+                                        <button onclick="increment('s4')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Chicken Tenders - 9pcs','12','s4','img4')"
+                                        data-bs-dismiss="modal">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                    <img src="https://media.istockphoto.com/id/1451323978/photo/baked-chicken-wings-with-sweet-chili-sauce-in-a-plate-black-background-top-view.webp?b=1&s=170667a&w=0&k=20&c=RgZklR6e7Z-Hrt1OSZRnx6te3vmAC2gfQ3ccuZifqw0="
+                        class="card-img-top" alt="..." id="img5">
+                    <div class="card-body">
+                        <h5 class="card-title">Hot & Spicy Wings - 6pcs</h5>
+                        <b>
+                            <p class="card-text">$9.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal4" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Hot & Spicy Wings - 6pcs</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$9.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s5')">-</button> <span id="s5">0</span>
+                                        <button onclick="increment('s5')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Hot & Spicy Wings - 6pcs','9','s5','img5')"
+                                        data-bs-dismiss="modal">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row1" style="display: flex; justify-content: center; align-items: center; gap: 80px;"> -->
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                    <img src="https://rasamalaysia.com/wp-content/uploads/2016/08/sticky-asian-chicken-wings-thumb.jpg"
+                        class="card-img-top" alt="..." id="img6">
+                    <div class="card-body">
+                        <h5 class="card-title">Hot & Spicy Wings - 9pcs</h5>
+                        <b>
+                            <p class="card-text">$12.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal5" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Hot & Spicy Wings - 9pcs</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$12.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s6')">-</button> <span id="s6">0</span>
+                                        <button onclick="increment('s6')">+</button>
+                                    </div>
+                                    <button class="cart"
+                                        onclick="AddToCart('Hot & Spicy Wings - 9pcs','12','s6','img6')"
+                                        data-bs-dismiss="modal">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row3 -->
+        <div class="row1" style="display: flex; justify-content: center; align-items: center; gap: 80px;">
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+                    <img src="https://pricemenu.in/wp-content/uploads/2023/04/kfc-box-meals-prices.jpg"
+                        class="card-img-top" alt="..." id="img7">
+                    <div class="card-body">
+                        <h5 class="card-title">Food Express Combo</h5>
+                        <b>
+                            <p class="card-text">$19.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal6" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Food Express Combo</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$19.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s7')">-</button> <span id="s7">0</span>
+                                        <button onclick="increment('s7')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Food Express Combo','19.00','s7','img7')"
+                                        data-bs-dismiss="modal">ADD TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                    <img src="https://us.123rf.com/450wm/bluedeamoure/bluedeamoure2302/bluedeamoure230200051/197952289-tacos-al-pastor-food-photography-collection-features-high-quality-images-that-bring-the-delicious.jpg?ver=6"
+                        class="card-img-top" alt="..." id="img8">
+                    <div class="card-body">
+                        <h5 class="card-title">Tacos</h5>
+                        <b>
+                            <p class="card-text">$5.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal7" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Tacos</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$5.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s8')">-</button> <span id="s8">0</span>
+                                        <button onclick="increment('s8')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Tacos','5','s8','img8')"
+                                        data-bs-dismiss="modal">ADD
+                                        TO CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row1" style="display: flex; justify-content: center; align-items: center; gap: 80px;"> -->
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal8">
+                    <img src="https://media.istockphoto.com/id/641391050/photo/hot-dogs-with-mustard.webp?b=1&s=170667a&w=0&k=20&c=0gjHnFzII5AkXyeARCEvKUbm6vzdutm5EjA5Pq3dl68="
+                        class="card-img-top" alt="..." id="img9">
+                    <div class="card-body">
+                        <h5 class="card-title">Hot dogs</h5>
+                        <b>
+                            <p class="card-text">$5.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal8" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Hot dogs</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$5.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s9')">-</button> <span id="s9">0</span>
+                                        <button onclick="increment('s9')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Hot dogs','5','s9','img9')"
+                                        data-bs-dismiss="modal">ADD
+                                        TO
+                                        CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row4 -->
+        <div class="row1"
+            style="display: flex; justify-content: center; align-items: center; gap: 80px; padding-bottom: 40px;">
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk49Q9GscFr-SvviUX8p55e0pGZkRcVU4W0Q&usqp=CAU"
+                        class="card-img-top" alt="..." id="img10">
+                    <div class="card-body">
+                        <h5 class="card-title">French fries</h5>
+                        <b>
+                            <p class="card-text">$4.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal9" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>French fries</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$4.00</p>
+                                </b>
+
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('s10')">-</button> <span id="s10">0</span>
+                                        <button onclick="increment('s10')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('French fries','4','s10','img10')"
+                                        data-bs-dismiss="modal">ADD TO
+                                        CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal10">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOgT0As_FFTnZAiHMY7Ytp2OFVfghhczsK_g&usqp=CAU"
+                        class="card-img-top" alt="..." id="img11">
+                    <div class="card-body">
+                        <h5 class="card-title">Pastries(Deserts)</h5>
+                        <b>
+                            <p class="card-text">$3.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal10" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Pastries</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$3.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('sa1')">-</button> <span id="sa1">0</span>
+                                        <button onclick="increment('sa1')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Pastries','3','sa1','img11')"
+                                        data-bs-dismiss="modal">ADD
+                                        TO
+                                        CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row1" style="display: flex; justify-content: center; align-items: center; gap: 80px;"> -->
+            <div class="container1">
+                <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#exampleModal11">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_lalaW7j4RFVvItBfnzhZHT9UyhfePbZLig&usqp=CAU"
+                        class="card-img-top" alt="..." id="img12">
+                    <div class="card-body">
+                        <h5 class="card-title">Ice Cream(Deserts)</h5>
+                        <b>
+                            <p class="card-text">$4.00</p>
+                        </b>
+                    </div>
+                </div>
+                <div class="modal" id="exampleModal11" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <h5 class="modal-title">Modal title</h5> -->
+                                <p id="message1"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>Ice Cream</h5>
+                                <p>Introducing our culinary masterpiece, the Mega Chicken Sandwich, a true delight for
+                                    all food enthusiasts!</p>
+                                <b>
+                                    <p class="card-text">$4.00</p>
+                                </b>
+                            </div>
+                            <div class="modal-footer"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <div class="inc-dec">
+                                    <div class="increment"><button style="font-size: 35px;"
+                                            onclick="decrement('sa2')">-</button> <span id="sa2">0</span>
+                                        <button onclick="increment('sa2')">+</button>
+                                    </div>
+                                    <button class="cart" onclick="AddToCart('Ice Cream','4','sa2','img12')"
+                                        data-bs-dismiss="modal">ADD
+                                        TO
+                                        CART</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="">
+        <div class="contactus">
+            <div class="contact">
+                <h1>CONTACT US</h1>
+                <h3>DROP US A LINE AND WE'LL GET BACK TO YOU</h3>
+                <div class="Crow1">
+                    <span>First Name</span>
+                    <span>Last Name</span>
+                </div>
+                <div class="input1">
+                    <span><input type="text"></span>
+                    <span><input type="text"></span>
+                </div>
+                <div class="Crow2">
+                    <span>Email</span>
+                    <span>Subject</span>
+                </div>
+                <div class="input1">
+                    <span><input type="email"></span>
+                    <span><input type="text"></span>
+                </div>
+                <p>Leave us a message...</p>
+                <div class="input1 message">
+                    <span><input type="text"></span>
+                    <span><button style="cursor: pointer;">Submit</button></span>
+                </div>
+            </div>
+            <div class="timings">
+                <h1>WE'RE OPEN</h1>
+                <p>Monday-Friday : 11am-10pm<br><br>
+                    Saturday-Sunday: 9am-12pm</p>
+                <p>500 Street, Bhimavaram<br><br>
+                    West Godavari District</p>
+                <p>Tel: 123-456-7890<br><br>
+                    Email: foodexpress@gmail.com</p>
+                <div class="social-media">
+                    <a href=""><i class="fa-brands fa-facebook-f fa-xl" style="color: #000000;"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram fa-xl" style="color: #000000;"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter fa-xl" style="color: #000000;"></i></a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <footer>
+        <div class="copyright"><span>© 2023 by <a href="">Food Express.</a> Powered and secured by Rakib
+                ali</span>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let count = 0;
+        let a = 0;  // for total items count
+        let b = [];   // for count of each item
+        function increment(id) {
+            count = parseInt(document.getElementById(id).textContent);
+            count++;
+            document.getElementById(id).textContent = count;
+        }
+        function decrement(id) {
+            count = parseInt(document.getElementById(id).textContent);
+            if (count > 0) {
+                count--;
+                document.getElementById(id).textContent = count;
+            }
+        }
+        var cartItems = [];
+        var cartImages = [];
+        function AddToCart(ItemName, Cost, id1, imageId) {
+            if (count == 0) {
+                alert('Please Select Quantity');
+            }
+            else {
+                document.getElementById("s11").innerHTML = count + a;
+                cartItems.push({ Item: ItemName + " (" + count + ")", Price: Cost * count });
+                a += count;
+                b.push(count);
+                count = 0;
+                document.getElementById(id1).innerHTML = count;
+                const img = document.getElementById(imageId);
+                cartImages.push(img.src);
+                UpdateCart();
+            }
+        }
+
+
+        function UpdateCart() {
+            var cartContainer = document.getElementById("Cart-Container");
+            cartContainer.innerHTML = "";
+            let totalAmount = 0;
+            cartItems.forEach((item, index) => {
+                totalAmount += parseFloat(item.Price);
+                cartContainer.innerHTML += `<div class="cart-item">
+                                          <div style="height:70px; width:90%; display:flex; justify-content:space-between;">
+                                             <div  style="display:flex; flex-direction:column;"> <span style="margin-top:18px;">${item.Item}</span>  
+                                               <span class="cart-price" >$${item.Price}</span>
+                                             </div>
+                                             <i class="fa-solid fa-trash fa-xl delete-icon" style="color: #000000;" onclick="DeleteItem(${index})"></i>
+                                          <span style="margin-top:8px;"><img src="${cartImages[index]}"  style="height:55px; width:55px; margin-bottom:10px; alt="${item.Item}" /></span>
+                                         </div>    
+                                    </div>`;
+            });
+            cartContainer.innerHTML += `<div class="cart-item1  cart-total" style="margin-top:20px">
+                                   <span><strong><center>Total:<strong></span>
+                                   <span class="cart-price">$${totalAmount}</center></span>
+                            </div>`;
+            sessionStorage.setItem("totalamount", totalAmount);
+        }
+        function DeleteItem(index) {
+            cartItems.splice(index, 1);
+            cartImages.splice(index, 1);
+            a -= b[index];  // a= tota item count
+            b.splice(index, 1);  // b array holding counts of each item
+            document.getElementById("s11").innerHTML = a;
+            UpdateCart();
+        }
+        function clearCart() {
+            cartItems.length = 0;
+            cartImages.length = 0;
+            a = 0;
+            document.getElementById("s11").innerHTML = 0;
+            UpdateCart();
+        }
+        function Pay() {
+            const totalamount = parseFloat(sessionStorage.getItem("totalamount"));
+            if (totalamount == 0) {
+                document.getElementById("Cart-Container").innerHTML = "please add items to cart before proceeding ";
+            }
+            else {
+                window.location.href = "/payment";
+            }
+        }
+
+        // Retrieve the 'username' cookie
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('username='))
+                .split('=')[1];
+
+            if (username) {
+                document.getElementById("user").innerHTML = username;
+            }
+        });
+        function logout() {
+            // Set a logout flag in a cookie
+            document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'logoutFlag=true; path=/';
+            // Redirect to the home page
+            window.location.href = "/home";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food</title>
+    <link rel="website icon" type="png"
+        href="https://t4.ftcdn.net/jpg/03/38/53/45/360_F_338534551_Rsv1pxY28g0dhFfeD7ule82Mrbi6yasF.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            scroll-behavior: smooth;
+            font-family: sans-serif;
+        }
+
+        nav {
+            height: 94px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .main nav a {
+            text-decoration: none;
+            /* color: #dd2803; */
+            font-size: 1.1vw;
+            color: black;
+            transition: 0.2s;
+        }
+
+        .home1:hover {
+            color: #dd2803;
+            text-decoration: underline;
+        }
+
+        .main nav .logo a {
+            color: #dd2803;
+            font-weight: 600;
+        }
+
+
+        .logo a img {
+            height: 50px;
+            width: 240px;
+        }
+
+        .nav-cont {
+            width: 600px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin-left: 600px;
+        }
+
+        .order-online {
+            width: 200px;
+            height: 70px;
+            background-color: #dd2803;
+            margin-left: auto;
+            margin-right: -70px;
+            transition: 0.5s all ease;
+            transform: rotate(90deg);
+            margin-top: 107px;
+        }
+
+        .order-online1 {
+            height: 65px;
+            border-radius: 8px;
+            background-color: #dd2803;
+            border: none;
+            color: #fff;
+            text-align: center;
+            font-size: 2.5vw;
+            padding: 5px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            /* margin: 36px; */
+        }
+
+        .order {
+            text-decoration: none;
+            color: white;
+            width: 200px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1vw;
+        }
+
+        .order1 {
+            text-decoration: none;
+            color: white;
+            width: 220px;
+            height: 65px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3vw;
+        }
+
+        .order-online:hover a {
+            color: #dd2803;
+            background-color: white;
+            border: 1px solid #dd2803;
+
+        }
+
+        .order-online1 {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .order-online1:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 13px;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .order-online1:hover {
+            padding-right: 10px;
+            padding-left: 8px;
+        }
+
+        .order-online1:hover:after {
+            opacity: 1;
+            right: 10px;
+        }
+
+
+        .image {
+            height: 800px;
+            width: 100%;
+            /* background-image: url(https://cdn.glitch.global/7491bbe4-fa4e-4642-b0b4-e251106303cb/bg3.jpeg?v=1692977845076); */
+            background-image: url(https://cdn.glitch.global/91ffd432-3d12-4cf9-8f58-df7ac0ce8fe1/chicken.webp?v=1693058221283);
+            background-size: cover;
+            background-attachment: fixed;
+            margin-top: 94px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-cont {
+            padding-right: 380px;
+            padding-bottom: 300px;
+            /* line-height: 110px;   #f9f2ea */
+        }
+
+        .image h1 {
+            /* color: black; */
+            font-weight: 900;
+            font-size: 3vw;
+            /* -webkit-text-stroke: 3px #ffffff; */
+            color: white;
+        }
+
+        .image p {
+            /* color: #dd2803; */
+            color: white;
+            line-height: 150%;
+            font-weight: 900;
+            font-size: 6vw;
+        }
+
+        .cards {
+            height: 600px;
+            width: 100%;
+            background-color: #f9f2ea;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .recepies {
+            height: 300px;
+            background-color: #f9f2ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .recepies h1 {
+            color: #dd2803;
+            font-size: 4.5vw;
+            font-weight: 600;
+        }
+
+        .card1 {
+            width: 389px;
+            height: 440px;
+            background-color: white;
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+
+        }
+
+        .cards p {
+            line-height: 29px;
+        }
+
+        .fa-mobile {
+            font-size: 105px;
+        }
+
+        .fa-truck {
+            font-size: 105px;
+        }
+
+        .fa-bag-shopping {
+            font-size: 105px;
+        }
+
+        .container {
+            height: 1400px;
+            width: 100%;
+            background-color: #f9f2ea;
+        }
+
+        .favourites {
+            width: 85%;
+            height: 740px;
+            background-color: white;
+            margin: auto;
+        }
+
+     
+        .fav-images {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .img1 img {
+            width: 23rem;
+            height: 23rem;
+            /* height: 365px; */
+            cursor: pointer;
+        }
+
+        .img1 h2 {
+            margin-left: 65px;
+            margin-top: 17px;
+        }
+
+        .fav-button {
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .specials {
+            width: 85%;
+            height: 740px;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .special-item {
+            width: 580px;
+            height: 500px;
+            background-color: white;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .special-item h2 {
+            font-size: 2.5vw;
+        }
+
+        .special-item p {
+            line-height: 25px;
+        }
+
+        .special-img {
+            background-image: url(https://cdn.glitch.global/7491bbe4-fa4e-4642-b0b4-e251106303cb/sha-transformed.jpeg?v=1692978190640);
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .contactus {
+            height: 600px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background: #fff;
+            flex-wrap: wrap;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .row1 {
+            display: flex;
+            gap: 183px;
+        }
+
+        .row2 {
+            display: flex;
+            gap: 220px;
+        }
+
+        .input1 {
+            display: flex;
+            gap: 30px;
+        }
+
+        .input1 input {
+            outline: none;
+            border: none;
+            border-bottom: 2px solid black;
+            width: 220px;
+            /* padding: 2px; */
+        }
+
+        .message input {
+            width: 270px;
+            padding: 18px;
+        }
+
+        .message button {
+            width: 140px;
+            height: 60px;
+            border: 2px solid black;
+            background: none;
+            transition: 0.5s all ease;
+            font-size: 1.2vw;
+        }
+
+        .message button:hover {
+            color: white;
+            background-color: #dd2803;
+
+        }
+
+        .timings {
+            display: flex;
+            flex-direction: column;
+            gap: 47px;
+        }
+
+        .social-media {
+            width: 100px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .social-media a:hover {
+            animation: shake 0.5s;
+            animation-iteration-count: 0.5s;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        footer {
+            height: 80px;
+            background-color: #dd2803;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 17px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            visibility: hidden;
+            position: absolute;
+            min-width: 110px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 10px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            visibility: visible;
+            margin-top: 2px;
+        }
+
+
+        /* media queries */
+
+        @media (max-width: 1245px) {
+            .nav-cont {
+                width: 100%;
+                margin-left: 0;
+                justify-content: space-evenly;
+            }
+
+            .order-online {
+                display: none;
+            }
+
+            .main nav a {
+                font-size: 1rem;
+                
+            }
+        }
+
+        @media (max-width:1060px) {
+            .image-cont {
+                padding-right: 200px;
+                padding-bottom: 380px;
+            }
+
+            .image h1 {
+                font-size: 30px;
+            }
+
+            .image p {
+                font-size: 40px;
+            }
+
+            .order-online1 {
+                width: 150px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .order {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <div class="logo"><a href="/home"><img
+                        src="https://cdn.glitch.global/1fe29a7d-73cd-4242-880d-c67fb794c0fe/food.png?v=1692977430389"
+                        alt="logo"></a></div>
+            <div class="nav-cont">
+                <a href="/home" class="home1" style="color: #dd2803;">Home</a>
+                <a href="/menu" class="home1">Menu</a>
+                <a href="/orders" class="home1">Order Online</a>
+                <a href="#contact" class="home1">Contact</a>
+                <div class="dropdown">
+                    <a href="/">
+                        <i class="fa-regular fa-circle-user fa-xl" style="color: #dd2803;"></i>
+                        <span style="color: #dd2803;" id="user">Login</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <span><a href="">My Account</a></span>
+                        <span><a href="/" onclick="logout()"><i class="fa-solid fa-power-off fa-lg"
+                                    style="color: #000000;"></i> <span id="logout">Logout</span></a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="order-online"><a href="/orders" class="order">Order Online</a></div>
+        </nav>
+    </div>
+    <div class="image">
+        <div class="image-cont">
+            <h1 style="text-shadow: 8px 6px black;">Foodie Dreams Delivered to Your Doorstep!</h1>
+            <p style="text-shadow: 10px 8px black;">GET IT WHILE <br>IT'S HOT</p>
+            <div class="order-online1"><a href="/orders" class="order1">Order Online</a></div>
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card1">
+            <i class="fa-solid fa-mobile" style="color: #030303;"></i>
+            <h3>ORDER ON THE GO</h3>
+            <p>Embrace convenience like never before<br> with our 'Order on the Go'
+                feature.<br>Say goodbye to long waiting lines <br>and the hassle of calling in orders</p>
+        </div>
+        <div class="card1">
+            <i class="fa-solid fa-truck" style="color: #000000;"></i>
+            <h3>DOORSTEP DELIVERY</h3>
+            <p>At Food Express, we take pride in <br>revolutionizing your dining experience<br> by bringing
+                convenience, flavor, and speed <br>right to your doorstep.</p>
+        </div>
+        <div class="card1">
+            <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i>
+            <h3>CURBSIDE PICKUP</h3>
+            <p>Enjoy the delectable delights from our<br> fast food menu in the comfort of your <br>own vehicle.
+                With Curbside Pickup <br>at Food Express</p>
+        </div>
+    </div>
+    <div class="recepies">
+        <h1>ORIGINAL RECIPE<br>&nbsp;&nbsp;&nbsp;&nbsp; SINCE 2003</h1>
+    </div>
+    <div class="container">
+        <div class="favourites">
+            <h1 style="text-align: center; padding-top: 50px; font-size: 2.5vw;">ALL TIME FAVORITES</h1>
+            <div class="fav-images">
+                <div class="img1">
+                    <img src="https://cdn.glitch.global/7491bbe4-fa4e-4642-b0b4-e251106303cb/chicken.jpeg?v=1692978005737"
+                        alt="">
+                    <h2>HOT & SPICY WINGS</h2>
+                </div>
+                <div class="img1">
+                    <img src="https://cdn.glitch.global/7491bbe4-fa4e-4642-b0b4-e251106303cb/chicken1.jpg?v=1692978014819"
+                        alt="">
+                    <h2>CHICKEN SANDWICH</h2>
+                </div>
+                <div class="img1">
+                    <img src="https://cdn.glitch.global/7491bbe4-fa4e-4642-b0b4-e251106303cb/frenchfries.jpg?v=1692978026208"
+                        alt="">
+                    <h2>FRENCH FRIES</h2>
+                </div>
+            </div>
+            <div class="order-online1 fav-button" style="display: flex; justify-content: center; align-items: center;">
+                <a href="/menu" class="order1">Full Menu</a>
+            </div>
+        </div>
+        <div class="specials">
+            <div class="special-item">
+                <h2>SPECIAL OF <br>THE WEEK</h2>
+                <h3>YOUR NEW SHAWARMA</h3>
+                <p>Introducing a tantalizing delight that takes your taste buds<br> on a flavorful journey the
+                    Shawarma sensation from Food Express!<br> Immerse yourself in the rich blend of perfectly
+                    marinated,
+                    <br>tender slices of meat, roasted to perfection on a vertical spit.
+                </p>
+            </div>
+            <div class="special-item special-img"></div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <form method="get" action="storeDetails">
+        <div class="contactus" id="contact">
+            <div class="contact">
+                <h1>CONTACT US</h1>
+                <h3>DROP US A LINE AND WE'LL GET BACK TO YOU</h3>
+                <div class="row1">
+                    <span>First Name</span>
+                    <span>Last Name</span>
+                </div>
+                <div class="input1">
+                    <span><input type="text" name="firstname"></span>
+                    <span><input type="text" name="lastname"></span>
+                </div>
+                <div class="row2">
+                    <span>Email</span>
+                    <span>Subject</span>
+                </div>
+                <div class="input1">
+                    <span><input type="text" name="email"></span>
+                    <span><input type="text" name="subject"></span>
+                </div>
+                <p>Leave us a message...</p>
+                <div class="input1 message">
+                    <span><input type="text" name="message"></span>
+                    <span><button style="cursor: pointer;">Submit</button></span>
+                </div>
+            </div>
+            <div class="timings">
+                <h1>WE'RE OPEN</h1>
+                <p>Monday-Friday : 11am-10pm<br><br>
+                    Saturday-Sunday: 9am-12pm</p>
+                <p>500 Street, Bhimavaram<br><br>
+                    West Godavari District</p>
+                <p>Tel: 123-456-7890<br><br>
+                    Email: foodexpress@gmail.com</p>
+                <div class="social-media">
+                    <a href=""><i class="fa-brands fa-facebook-f fa-xl" style="color: #000000;"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram fa-xl" style="color: #000000;"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter fa-xl" style="color: #000000;"></i></a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <footer>
+        <div class="copyright"><span>© 2023 by <a href="">Food Express.</a> Powered and secured by Rakib
+                ali</span>
+        </div>
+    </footer>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('username='))
+                .split('=')[1];
+
+            if (username) {
+                document.getElementById("user").innerHTML = username;
+            }
+        });
+
+        function logout() {
+            // Set a logout flag in a cookie
+            document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'logoutFlag=true; path=/';
+            // Redirect to the home page
+            window.location.href = "/home"; 
+        }
+
+    </script>
+</body>
+
+</html>

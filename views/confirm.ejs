@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img{
+            height: 90vh;
+            width: 60%;
+            /* background-color: rgb(181, 181, 70); */
+            background-image: url(https://cdn.glitch.global/bccd1ef1-07a1-403e-94a0-a6cf31e01e94/order-PhotoRoom.webp?v=1693270658101);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        button{
+            /* background-color: red; */
+            width: 10rem;
+            height: 3rem;
+            border-radius: 4%;
+            position: absolute;
+            top: 78%;
+            left: 22%;
+        }
+    </style>
+</head>
+<body>
+    <div class="img">
+        <button class="btn btn-danger" type="button" onclick="done()">Done</button>
+    </div>
+    <script>
+        function done(){
+            window.location.href="/home"
+        }
+    </script>
+</body>
+</html>

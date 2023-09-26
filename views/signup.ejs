@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="website icon" type="png"
+        href="https://t4.ftcdn.net/jpg/03/38/53/45/360_F_338534551_Rsv1pxY28g0dhFfeD7ule82Mrbi6yasF.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            background: rgb(240, 242, 245);
+
+        }
+
+        .signup {
+            width: 30%;
+            padding: 25px 60px;
+            border-radius: 5%;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        .button {
+            transition: all ease 0.4s;
+        }
+
+        .button:hover {
+            border-radius: 50px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .signup input {
+            border: 1px solid black;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 20;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <img src="https://cdn.glitch.global/1fe29a7d-73cd-4242-880d-c67fb794c0fe/food.png?v=1692977430389" alt=""> -->
+    <div class="logo"><a href="/home"><img
+                src="https://cdn.glitch.global/6c266cf1-1225-4063-90c6-bd8d5b982de2/food-removebg-preview.png?v=1693532598743"
+                alt=""></a></div>
+    <div class="signup">
+        <small style="color: red; font-size: large;">
+            <%= mess1 %>
+        </small>
+        <h2>Create account</h2>
+        <form class="row g-3" method="post" action="/signupSubmit" onsubmit="return validateForm()">
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Your name</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="First and Last name" name="name">
+            </div>
+            <div class="col-md-12">
+                <label for="inputPassword4" class="form-label">Mobile number or email</label>
+                <input type="text" class="form-control" id="inputPassword4" placeholder="mobile number or email"
+                    name="email">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="inputAddress" placeholder="At least 6 characters"
+                        name="password">
+                    <i class="fa-regular fa-eye-slash fa-lg toggle-password" id="pass"></i>
+                </div>
+                <div id="emailHelp" class="form-text mx-2">Passwords must be at least 6 characters.</div>
+            </div>
+            <div class="col-12">
+                <label for="inputAddress1" class="form-label">Re-enter password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="inputAddress1" placeholder="re-enter password"
+                        name="repass">
+                    <i class="fa-regular fa-eye-slash fa-lg toggle-password" id="pass1"></i>
+                </div>
+                <div id="emailHelp1" class="form-text mx-2"></div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary col-10 mx-4 button">Submit</button>
+            </div>
+            <div class="col-12">
+                <p>Already have an account?<a href="/"> Sign in</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        const togglePassword = document.querySelector('#pass');
+        const password = document.querySelector('#inputAddress');
+
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type');
+            if (type === 'password') {
+                password.setAttribute('type', 'text');
+            } else {
+                password.setAttribute('type', 'password');
+            }
+        });
+
+        const togglePassword1 = document.querySelector('#pass1');
+        const password1 = document.querySelector('#inputAddress1');
+
+        togglePassword1.addEventListener('click', function (e) {
+            const type = password1.getAttribute('type');
+            if (type === 'password') {
+                password1.setAttribute('type', 'text');
+            } else {
+                password1.setAttribute('type', 'password');
+            }
+        });
+
+        function validateForm() {
+            let pass = document.getElementById("inputAddress").value;
+            let length = pass.length;
+            let repass = document.getElementById('inputAddress1').value;
+
+            if (pass !== repass) {
+                document.getElementById("emailHelp1").innerHTML = "Passwords do not match. Please retry.";
+                document.getElementById("emailHelp1").style.color = "red";
+                document.getElementById("emailHelp1").style.fontWeight = "600";
+                document.getElementById("inputAddress1").style.border = "2px solid red";
+                document.getElementById("inputAddress1").style.boxShadow = "0px 0px 5px 0px red";
+                return false; // Prevent form submission
+            }
+            else {
+                document.getElementById("emailHelp1").innerHTML = "";
+                document.getElementById("emailHelp1").style.color = "";
+                document.getElementById("inputAddress1").style.border = "";
+            }
+            if (length < 6 && length != " ") {
+                document.getElementById("emailHelp").innerHTML = "Passwords must be at least 6 characters.";
+                document.getElementById("emailHelp").style.color = "red";
+                document.getElementById("emailHelp").style.fontWeight = "600";
+                document.getElementById("inputAddress").style.border = "2px solid red";
+                document.getElementById("inputAddress").style.boxShadow = "0px 0px 5px 0px red";
+                return false;
+            }
+            return true; // Allow form submission
+        }
+
+    </script>
+
+</body>
+
+</html>
